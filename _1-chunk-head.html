@@ -1,0 +1,37 @@
+    <!--This is a {{ craft.app.request.isMobileBrowser() ? 'mobile' : 'desktop' }} browser-->
+
+    <title>{{ entry.title }} | Modern Kadampa Buddhism in Seattle</title>
+    <link rel="icon" type="image/png" href="/nkt-logo.png" />
+
+    <!--link href="/assets/css/vertical-responsive-menu.css" rel="stylesheet" -->
+
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+
+    <style>
+
+        {% include "_css_main.css" %}
+        {% include "css_ckeditor.css" %}
+
+        {% set theme = (siteHome.cssTheme|default ? siteHome.cssTheme : (home.cssTheme|default ? home.cssTheme : '')) %}
+        {% if theme != '' %}
+            {% set includeFile = "_css_brand-n-nav." ~ theme ~ ".css" %}
+    
+/* Theme: {{theme}}  Including: {{includeFile}} */
+
+            {% include includeFile %}
+        {% endif %}
+            
+        {% include "_css_events.css" %}
+        {% if entry.pageCssFile is defined -%}
+            {% set pageCssFile = entry.pageCssFile.one() -%}
+            {% if pageCssFile is not null -%}
+                {% include pageCssFile -%}
+            {% endif -%}
+        {% endif -%}
+    
+        /* Page-specific styles from inside the Craft entry: {{entry}} {{entry.url}} */
+        {{ entry.css }}
+
+    </style>
+

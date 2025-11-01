@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<!--Templates used: {{ _self }} {{(templates is defined) ? 'from ' ~ templates : '' }}-->
+{% set site = craft.app.request.hostName %}<!--Site: {{site}} -->
+{% set home = craft.entries().section('home').one() %}<!--Home: {{home}} -->
+
+{% set nonTestingSite = site[0:5] is same as('test.') ? site[5:] : site %}<!--nonTestingSite: {{nonTestingSite}} -->
+{% set nonTestingSite = nonTestingSite|replace('local', '37Dakinis') %}
+{%exit%}{% set siteHome = craft.entries().slug(site).one() %}
+
+<!--siteHome: {{siteHome.slug}} -->
+<!--image: {{siteHome.mainTopBrandingImage.one().url}} -->
+
+<html lang="en">
+
+<head>
+    {% include '_1-chunk-head.html' %}
+    {%- block ex_head %}{% endblock %}
+</head>
+
+<body {{ ((schema is defined) ? 'itemscope itemtype="http://schema.org/' ~ schema ~ '"' : '')|raw }} >
+
+    <a id="skipToMainContent" href="#mainContent">Skip to main content</a>
+
+    <div id="branding">
+        <p id="KMCWA"><a class="no-decoration" href="/" title="Home | Modern Kadampa Buddhism in Seattle and beyond">Kadampa Meditation Center Washington</a></p>
+
+    </div>
+
+    {% include '_2-chunk-navigation.html' %}
+
+    <div id="mainContainer">
+        <main role="main">
+            <a name="mainContent">
+            <h1>{{ entry.title }}</h1>
+
+            {% block content %}<p>No content in content block.</p>{% endblock %}
+
+        </main>
+    </div>
+
+    <div style="clear:both;"></div>
+
+    {% include '_3-chunk-footer.html' %}
+
+
+</body>
+
+</html>
+{% block lastJavascript %}{# Put here any js statements for craft to include last #}{% endblock %}

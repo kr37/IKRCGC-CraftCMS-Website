@@ -1,0 +1,84 @@
+/*------ {{ _self }}  ------*/
+
+    /* Main Styles */
+
+        .c  { text-align: center; margin: auto; }
+        .l  { text-align: left; }
+        .r  { text-align: right; }
+        .larger  { font-size: 137%; }
+        .smaller { font-size: 80%; }
+        
+        figure  { padding: 1em; margin: 0; background-color: pink; }
+        address { text-align: center; font-style: normal; }
+        address p   { font-family: verdana, arial, sans-serif; }
+        #addressName        { font-size: 108%; font-family: var(--fontHeaders); font-variant-caps: small-caps; }
+        table   { border-collapse: collapse; margin: auto; }
+        td, th  { padding: 1px .5em; }
+        caption { font-family: arial,sans-serif; font-weight:600; }
+        th p, td p  { padding: 0; margin: 0; }
+        ul      { padding: 0; margin: 0; }
+
+        .redactor td, 
+        .redactor th
+                { padding: 0 .5em; border: 1px solid lightgray; }
+
+        h2 .adminEdit { font-size: x-small; }
+
+        .color-red { color: red; }
+        .no-decoration { text-decoration: none; }
+
+    /* Main Elements */
+
+        x#mainContainer     {}
+        #page_footer        { padding: 1em; text-align: center; }
+        #nktLogo            { display: block; clear: both; }
+        #copyright          { text-align: center; }
+        #privacy            { text-align: center; cursor: pointer; }
+        #cookies            { text-align: center; cursor: pointer; }
+        @media (min-width: 979px) { 
+            #brandNNavContainer { display: block; position: fixed; height: 100%; width: 208px; z-index: 1; top: 0; left: 0; }
+            #branding,
+            #mainContainer,  
+            #page_footer        { margin-left: 208px; }
+        }
+
+    /* Home Promoting Items */
+
+        .homePromotingItem { float: left; margin: 2em; box-shadow: 7px 10px 5px gray; }
+
+    /* Year at a Glance */
+
+        .yearAtAGlance td { padding: .5em; font-family: sans-serif; }
+
+    /* Calendar and Mini-calendar */
+
+
+        #miniCal        { width: 21em; border-radius: 37px; padding: 1em; background-color: khaki; color: black; font-family: var(--fontHeading); }
+        #miniCal p.date { color: black; font-weight: 600; }
+        .calendar       { float: left; }
+
+    /* Matrix Image */
+
+        .matrixImageLeft            { float: left; margin: .1em .7em .1em 0; }
+        .matrixImageRight           { float: right; margin: .1em 0 .1em .7em; }
+        .matrixImageCenter          { display: block; margin: .1em auto; }
+        .matrixImageStretchToFit    { width: 100%; }
+
+    /* Window size developer helper - resize the screen, and the width will be displayed at the bottom. */
+
+        #windowSize { display: none; text-align: center; }
+
+    /* Skip to Main Content */
+
+        #skipToMainContent { position: fixed; left: -70vw; top: 0; padding: 1em; background-color: red; color: white; font-weight: 600; z-index: 2;}
+        x#skipToMainContent:focus { left: 0; font-size: 24px; font-family: sans-serif, arial;  }
+
+    /* Registration */
+
+        .registerButton { 
+            height: 2em;     width: 7em;    border-radius: 1.5em; 
+            border: 1px solid orange;    background-color: yellow;    color: black; 
+            font:   1.2em bold arial, sans-serif;
+            cursor: pointer;
+        }
+        .registerButton:disabled { background-color: gray; cursor: not-allowed; }

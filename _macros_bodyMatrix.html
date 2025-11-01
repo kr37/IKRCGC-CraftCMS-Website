@@ -1,0 +1,269 @@
+/* Macros */
+{# macro bodyMatrix(entry) #}
+{# macro event(entry) #}
+{# macro homePromotingItem(entry, thumb, trimlen) #}
+
+
+{% macro bodyMatrix(entry) %}
+    {% import _self as dry %}
+    {% set matrixBlocks = entry.bodyMatrix.all() %}
+    {% for block in matrixBlocks %}
+        {% switch block.type %}
+            {% case  'mainText' %}
+
+                <div class="mainText">
+                    {{ block.mainText }}
+
+                </div>
+            {% case  'ckEditor' %}
+
+                <div class="ckEditor">
+                {{ block.ckEditor }}
+
+                </div>
+            {% case  'tinyMce' %}
+
+                <div class="tinyMce">
+                {{ block.tinyMce }}
+
+                </div>
+            {% case  'courseScheduleTable' -%}
+                {% if block.courseScheduleTable|length %}
+
+                    <table class="courseScheduleTable">
+                        <caption>{{ block.caption|md ?: "Schedule" }}</caption>
+                        <tbody>
+                            {% for row in block.courseScheduleTable -%}
+                            <tr>
+                                <td class="r">{{ row.time|md }}</td>
+                                <td class="l">{{ row.session|md }}</td>
+                            </tr>
+                        {% endfor -%}
+                        </tbody>
+                    </table>
+                {% endif %}
+            {% case  'classDatesTable' -%}
+                {% if block.classDatesTable|length %}
+
+                    <table class="classDatesTable">
+                        <caption>{{ block.caption }}</caption>
+                        <tbody>
+                            {% for row in block.classDatesTable -%}
+                            <tr>
+                                <td class="r">{{ row.date ? row.date|date('D, M j, Y') : '*' }}</td>
+                                <td class="l">{{ row.class|md }}</td>
+                            </tr>
+                        {% endfor %}
+                        </tbody>
+                    </table>
+                {% endif %}
+            {% case  'retreatTimesTable' -%}
+                {% if block.retreatTimesTable|length %}
+
+                    <table class="retreatTimesTable">
+                        <caption>{{ block.caption ?: "Retreat Times" }}</caption>
+                        <tbody>
+                            {% for row in block.retreatTimesTable -%}
+                            <tr>
+                                <td class="r">{{row.date|date('D, M j, Y')}}</td>
+                                <td class="c">{{row.session1|raw}}</td>
+                                <td class="c">{{row.session2|raw}}</td>
+                                <td class="c">{{row.session3|raw}}</td>
+                                <td class="c">{{row.session4|raw}}</td>
+                            </tr>
+                        {% endfor %}
+                        </tbody>
+                    </table>
+                {% endif %}
+            {% case  'image' -%}
+                {% set thumb = { mode: 'fit', width: 300, height: 200, quality: 95,} %}
+                {% set images = block.image.all() %}
+                {% for image in images %}
+                    {% do image.setTransform(thumb) %}
+
+                        <img class="matrixImage{{ block.alignment }}" src="{{ image.url }}" alt="{{ image.alt }}">{{ image.makeLink }}
+                {% endfor %}
+            {% case  'rawTwig' -%}
+                {{ include(template_from_string(block.rawTwig|raw)) }}
+            {% case 'donationButton' %}
+
+                <form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_top">
+                    {{ csrfInput() }}
+                    <input type="hidden" name="cmd" value="_donations">
+                    <input type="hidden" name="business" value="treasurer@meditateinseattle.org">
+                    <input type="hidden" name="lc" value="US">
+                    <input type="hidden" name="no_shipping" value="1">
+                    <input type="hidden" name="currency_code" value="USD">
+                    <input type="hidden" name="no_note" value="1">
+                    <input type="hidden" name="item_name" value="{{ block.nameOnPaypal }}">
+                    Please enter your donation amount: $<input type="text" name="amount" size="7"><br />
+                    <label for="custom">Is there any message you'd like to convey?</label><br>
+                    <textarea            name="custom" rows="4" cols="37"></textarea>
+                    <!-- --><br />
+                    <input type="hidden" name="bn" value="PP-DonationsBF:btn_donateCC_LG.gif:NonHosted"><br />
+                    <input type="image" src="https://www.paypalobjects.com/en_US/i/btn/btn_donateCC_LG.gif" border="0" name="submit" alt="PayPal - The safer, easier way to pay online!"><br />
+                    <img alt="" border="0" src="https://www.paypalobjects.com/en_GB/i/scr/pixel.gif" width="1" height="1"><br />
+                </form>
+
+            {% case 'bm_calendar' %}
+
+                <div class="calendar cal37_{{block.typeOfCalendar}}">
+                {% set atts = {
+                        'dateformat'       : 'D j', 
+                        'dateformat1st'    : 'D, F j',  
+                        'occurrenceFormat' : '<b>%2s</b> %1s',
+                        'categoriesToInclude' : block.categoriesToInclude,
+                        'categoriesToExclude' : block.categoriesToExclude,
+                } %}
+                {% if block.typeOfCalendar == "monthly" %}
+
+                    {% set start = "now"|date("Y-m-d") %}
+                    {{ craft.DryCalendar.calendar_full(null, null, atts)|raw }}
+
+                {% elseif block.typeOfCalendar == "todayOnly" %}
+
+                    <div class="miniCalDay">
+                        {{ craft.DryCalendar.oneDay("",atts)|raw }}
+
+                    </div>
+
+                {% elseif block.typeOfCalendar == "todayAndTomorrow" %}
+
+                    {{ dry.miniCal({}) }}
+
+                {% endif %}
+
+                </div>
+            {% case  'badgeGallery' %}
+
+                {% set site = craft.app.request.hostName %}
+                {% set nonTestingSite = site[0:5] is same as('test.') ? site[5:] : site %}
+
+                <div id="homePromotingWrapper">
+
+                {#% set atts = {
+                        'dateformat'       : 'D j', 
+                        'dateformat1st'    : 'D, F j',  
+                        'occurrenceFormat' : '<b>%2s</b> %1s',
+                        'categoriesToInclude' : block.categoriesToInclude,
+                        'categoriesToExclude' : block.categoriesToExclude,
+                } %}
+                    {{ dry.miniCal(atts) }#}
+
+                    <!-- display events images -->
+                    {% set entries = craft.KMC23.homeBadges(nonTestingSite) %}
+                    {% set thumb = { mode: 'fit', width: 450, height: 300, quality: 95,} %}
+                    {% set trimlen = 0 %}
+                    {% for entry in entries['universal'] %}
+                        {{ dry.homePromotingItem(entry, thumb, trimlen) }}
+                    {% endfor %}
+                    {% for entry in entries['high'] %}
+                        {{ dry.homePromotingItem(entry, thumb, trimlen) }}
+                    {% endfor %}
+
+
+
+                    <div style="clear:both;"></div>
+                </div>
+        {% endswitch %}
+
+    {% endfor %}
+{% endmacro %}
+
+
+
+
+{% macro event(entry) %}
+    {% import _self as macros %}
+    {% import "_macros_registration.html" as macroReg %}
+    {% import "_macros_misc.html" as macrosMisc %}
+
+
+        <div class="eventDiv">
+            <h2><a href="{{ entry.url }}">{{ entry.title }}</a> <span class="adminEdit">{{ macrosMisc.adminEdit(entry) }}</span></h2>
+            {% if entry.subtitle|length %}<h3>{{ entry.subtitle }}</h3>{% endif %}
+
+    
+            {% set image= entry.mainImage.one() %}
+            {% if image|length %}
+                {% do image.setTransform('mainImage400x250') %}
+
+            <div class="mainImageDiv">
+                <img src="{{ image.url }}" alt="{{ image.alt }}" width="{{ image.width }}" height="{{ image.height }}">
+            </div>
+            {% endif %}
+                
+            <div class="dateAndTimeInfo">
+                {{ entry.dateAndTimeInfo|md }}
+
+            </div>
+
+            {% set teachers = entry.teacher.all() -%}
+            {% if teachers|length -%}
+            <div class="teacherDiv">
+                {% for teacher in teachers %}
+                    {% set image = teacher.teacherImage.one() %}
+                    {% if image %}
+                        {% do image.setTransform('teacherImage150x150') %}
+
+                        <a href="{{ teacher.url }}" title="Click for bio about&#10;{{ teacher.title }}">
+                            <figure class="teacherInfo">
+                                <img src="{{ image.url }}" alt="{{ image.alt }}" width="{{ image.width }}" height="{{ image.height }}">
+                                <figcaption>{{ teacher.title }}</figcaption>
+                            </figure>
+                        </a>
+                    {% endif %}
+                {% endfor -%}
+            </div>
+            {% endif -%}
+
+            {{ macros.bodyMatrix(entry) }}
+
+            {{ macroReg.registrationMatrix(entry.registrationMatrix, entry.askForAttendeeNames, entry.id) }}
+
+            <div style="clear:both;"></div>
+        </div>
+{% endmacro %}
+
+
+{% macro homePromotingItem(entry, thumb, trimlen) %}
+	{% set asset = entry.mainImage.one() ?: entry.image.one() | default(null) %}
+
+		<div class="homePromotingItem">
+            <div class="homePromotingPic">
+                <a href="{{ entry.url }}" title="{{ entry }} ~ {{entry.mainStructureCategory.one().title}}: {{entry.mainStructureCategory.inReverse().one().title}}">
+                    {% if asset -%}
+                        <img src="{{ asset.getUrl(thumb) }}" width="{{ asset.getWidth(thumb) }}" height="{{ asset.getHeight(thumb) }}" alt='{{ entry }}' >
+                    {% else -%}
+                        <div class="missingPic" style="width: 450px; height: 300px; border: 2px solid gray; background-color: lightgray; padding: 1em; overflow: hidden; display: flex; flex-direction: column; justify-content: center; text-align: center;">
+                            <h1>{{entry.title}}</h1>
+                            <p>{{entry.startDate|date('mm d, Y')}}</p>
+                        </div>
+                    {% endif %}
+
+                </a>
+            </div>
+		</div>
+{% endmacro %}
+
+
+{% macro miniCal(atts) %}
+                    <div id="miniCal">
+                        <h2>Events today and tomorrow</h2>
+                        <div class="miniCalDay">
+                            {% set atts = atts|merge({'dateformat' : 'l, F j',  'occurrenceFormat' : '%2s<br>%1s'}) %}
+                            {{ craft.DryCalendar.oneDay("",atts)|raw }}
+
+                        </div>
+
+                        <div class="miniCalDay">
+                            {{ craft.DryCalendar.oneDay("+1day",atts)|raw }}
+
+                        </div>
+                        <div style="clear:both;"></div>
+                    </div><!--miniCal-->
+
+{% endmacro %}
+
+{% macro scraps() %}
+{% endmacro %}

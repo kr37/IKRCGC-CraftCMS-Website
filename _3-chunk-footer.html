@@ -1,0 +1,85 @@
+    <footer id="page_footer">
+
+        <div class="ck">
+            {{ siteHome.footer|raw }}
+        </div>
+
+        <div id="footerBand1" class="footerBand">
+            {% set nktLogo       = craft.assets.id(3279).one() %}
+            {% set livingClarity = craft.assets.id(4982).one() %}
+            {% set MBPodcasts    = craft.assets.id(4983).one() %}
+            {% do       nktLogo.setTransform('teacherImage150x150') %}
+            {% do livingClarity.setTransform('teacherImage150x150') %}
+            {% do    MBPodcasts.setTransform('teacherImage150x150') %}
+
+            <a id="nktLogo" href="{{nktLogo.moreInfoUrl}}" target="_blank">
+                <img src="{{ nktLogo.url }}"     width="{{ nktLogo.width }}"     height="{{ nktLogo.height }}"     alt="{{ nktLogo.alt }}"     title="{{ nktLogo.title }}">
+            </a>
+            <a id="livingCarity" href="{{livingClarity.moreInfoUrl}}" target="_blank">
+                <img src="{{livingClarity.url}}" width="{{livingClarity.width}}" height="{{livingClarity.height}}" alt="{{livingClarity.alt}}" title="{{livingClarity.title}}">
+            </a>
+            <a id="MBPodcasts" href="{{MBPodcasts.moreInfoUrl}}" target="_blank">
+                <img src="{{ MBPodcasts.url }}"  width="{{ MBPodcasts.width }}"  height="{{ MBPodcasts.height }}"  alt="{{ MBPodcasts.alt }}"  title="{{ MBPodcasts.title }}">
+            </a>
+
+        </div>
+
+        <div id="footerBand2" class="footerBand">
+            <p><a href="/donate">Donate</a></p>
+            <p><a href="/eNews">eNews</a></p>
+        </div>
+
+        <div id="footerBand3" class="footerBand">
+            <address>
+                <p><span id="addressName">Kadampa Meditation Center Washington</span><br>
+                6556 24th Ave NW<br>
+                Seattle, WA 98117</p>
+                <p>Ph: (206) 526-9565<br>
+                 e: info@meditateinseattle.org</p>
+            </address>
+
+            <p id="privacy" onclick="alert('Privacy\n   We do not sell your information or track you across sites.\n\nCookies\n   We use cookies to enable functionality such as logging in for member discounts and the shopping cart.\n   We also give peanut butter cookies to our web developers to keep them happy, but that isn\'t real happiness.');">Privacy and cookies</p>
+
+            <p id="QRCode">
+                <a href='/qrcode?{{ {'url': entry.url, 'slug': entry.slug}|url_encode }}' style='text-decoration:none;'>Get QR code</a>
+            </p>
+
+            <p id="copyright">©{{ now|date('Y') }} KMC Washington. All rights reserved.</p>
+
+        </div>
+
+
+        <p id="windowSize"></p>
+
+        <div style="clear:both;"></div>
+    </footer>
+
+{% set windowSizeJs %}
+    // *** Media Query Helper Function ***
+    // Whenever the browser window width is adjusted, this inconspicuously displays the new screen width
+    // down at the bottom of the page, to help us define our CSS media queries
+    // (This is inserted in _chunk-footer.html)
+    var cachedWidth = window.innerWidth;
+    window.addEventListener('resize', function(event) {
+        presentWidth = window.innerWidth;
+        if (presentWidth != cachedWidth) {
+            document.getElementById('windowSize').style.display = "block";
+            document.getElementById('windowSize').innerHTML = window.innerWidth;
+            cachedWidth = window.innerWidth;
+        }
+    });
+{% endset %}
+{% js windowSizeJs %}
+
+{% set navToggleJs %}
+    /* Navigation accordian script */
+    function handler(e) {
+      e = e || window.event;
+      var target = e.target || e.srcElement;
+      var action = target.dataset['action'] || 'no action';
+      !(action == 'toggle') || (target.childNodes[1].classList.toggle('show'));
+    }
+    var firstUL = document.getElementsByTagName('ul')[0];
+    firstUL.addEventListener('click', handler, false);
+{% endset %}
+{% js navToggleJs %}

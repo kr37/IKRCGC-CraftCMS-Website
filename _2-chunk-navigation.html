@@ -1,0 +1,234 @@
+{% import _self as self %}
+
+{% set toggleMenuJs %}
+    /* */
+    /*** Main navigation menu JS ***/
+
+        document.getElementById('brandNNavContainer').classList.remove('not-js-capable');
+        document.getElementById('brandNNavContainer').classList.add('js-capable');
+
+        /* Shows or hides the whole menu */
+        function toggleMenuOpen(newState) {
+            if (newState == 'open') {
+                document.getElementById('hamburgerNormal').style.display = 'none';
+                document.getElementById('hamburgerX').style.display = 'block';
+                document.getElementById('mainNav').style.display = 'block';
+                
+            } else {
+                document.getElementById('hamburgerNormal').style.display = 'block';
+                document.getElementById('hamburgerX').style.display = 'none';
+                document.getElementById('mainNav').style.display = 'none';
+            }
+        }
+
+        /* Shows or hides a sub-menu */
+        function toggleSubMenu(pressedItem) {
+            var status = this.classList.contains('openSubMenu');
+
+            // Close any other open submenus
+            var elements = document.getElementsByClassName("openSubMenu");
+            for (var i = 0; i < elements.length; i++) {
+                //elements[i].classList.remove('openSubMenu');
+            }
+            if (status == false) {
+                this.classList.add('openSubMenu')
+            } else {
+                this.classList.remove('openSubMenu')
+            }
+        }
+
+        /* Apply the listener for all items that have sub-menus */
+        var elements = document.getElementsByClassName("hasSubMenu");
+        for (var i = 0; i < elements.length; i++) {
+            elements[i].addEventListener('click', toggleSubMenu, false);
+        }
+
+        /* Show branches submenu items one at a time as a strobe */
+        var strobingElements = document.getElementsByClassName('strobe');
+        strobingElements = Array.from(strobingElements);
+        strobingElements.forEach(strober => {
+            var branchesUL          = strober.nextElementSibling;
+            var branches            = Array.from(strober.nextElementSibling.children);
+            strober.strobeCount     = 0;
+            strober.strobeContent   = [];
+            branches.forEach(branch => {
+                strober.strobeContent[strober.strobeCount] = branch.innerHTML;
+                strober.strobeCount++;
+            });
+            strober.strobeElem  = strober.querySelector('.strobeContent');
+            strober.strobeIndex = 0;
+        });
+        var strobeInterval = 3000;
+        function strobe() {
+            strobingElements.forEach(strober => {
+                strober.strobeElem.classList.add('strobeHide');
+                setTimeout(function() {
+                    strober.strobeIndex++ ;
+                    if (strober.strobeIndex >= strober.strobeCount) {
+                         strober.strobeIndex = 0;
+                    }
+                    strober.strobeElem.innerHTML = strober.strobeContent[strober.strobeIndex];
+                    strober.strobeElem.classList.remove('strobeHide');
+                }, 500);
+
+            });
+        }
+        setInterval(strobe, strobeInterval);
+
+    /*** end of main navigation menu JS ***/
+    /* */
+{% endset %}
+{% js toggleMenuJs %} {# This inserts it just before the </body> tag #}
+
+
+    <div id="brandNNavContainer" class="not-js-capable">
+        <div id="topOfNav">
+            {% set brandingImage = siteHome|default ? siteHome.mainTopBrandingImage.one() : null -%}
+            {% if brandingImage -%}
+                <img id="mainTopBrandingImage" src="{{ siteHome.mainTopBrandingImage.one().url }}">
+            {% endif %}
+
+
+            <!--div id="navTopLeft">
+                {{ siteHome.navigationTopLeft|raw }}
+            </div-->
+
+            <div id="hamburger">
+                <svg id="hamburgerNormal" onclick="toggleMenuOpen('open');" aria-hidden="true" role="presentation" viewBox="0 0 1000 1000">
+                    <path d="M104 333H896C929 333 958 304 958 271S929 208 896 208H104C71 208 42 237 42 271S71 333 104 333ZM104 583H896C929 
+                            583 958 554 958 521S929 458 896 458H104C71 458 42 487 42 521S71 583 104 583ZM104 833H896C929 833 958 804 958 
+                            771S929 708 896 708H104C71 708 42 737 42 771S71 833 104 833Z">
+                    </path>
+                </svg>
+
+                <svg id="hamburgerX" onclick="toggleMenuOpen('close');" aria-hidden="true" role="presentation" viewBox="0 0 1000 1000">
+                    <path d="M742 167L500 408 258 167C246 154 233 150 217 150 196 150 179 158 167 167 154 179 150 196 150 212 150 229 
+                            154 242 171 254L408 500 167 742C138 771 138 800 167 829 196 858 225 858 254 829L496 587 738 829C750 842 
+                            767 846 783 846 800 846 817 842 829 829 842 817 846 804 846 783 846 767 842 750 829 737L588 500 833 
+                            258C863 229 863 200 833 171 804 137 775 137 742 167Z">
+                    </path>
+                </svg>
+                <span class="elementor-screen-only">Menu</span>
+
+            </div>
+        </div>
+        <div style="clear:both;"></div>
+
+        <nav id="mainNav">
+<style>
+    .navHome { float: left; }
+    .navLogin { float: right; padding-top: .1em; font-size: smaller; text-transform: none; }
+</style>
+            <ul class="menu navLevel1">
+                <li class="menu-item nav">
+                    <div class="navHome"><a href="/">Home</a></div>
+                    <div class="navLogin">
+                    {% if craft.LoginCart.getLoginStatus %}
+                        {% set customer = craft.LoginCart.getCustomer %}
+                        Hi {{ customer.firstName }}
+                        <ul>
+                            <li><a href="/actions/drylogincart/login/profile">Profile</a></li>
+                            <li><a href="/actions/drylogincart/login/logout">Log out</a></li>
+                        </ul>
+                    {% else %}
+                        <a href="/login.html">Login</a> or <a href="/register.html">Register</a>
+
+                    {% endif %}
+                    </div>
+                </li>
+                {% cache %}
+                    {% set root  = craft.entries().section('menuPages').slug(nonTestingSite).one() -%}
+                    {% set pages = craft.entries().section('menuPages').descendantOf(root.id).level(2).all() -%}
+                    {% set indent = "" -%}
+                    {{ self.navig("https://"~site, pages, indent) }}
+                {% endcache %}
+
+            </ul>
+
+            <div id="navBottomRight">
+                {{ siteHome.navigationBottomRight|raw }}
+            </div>
+        </nav>
+    </div>
+
+
+{% macro navig(parentUrl, pages, indent0) %}
+    {% for page in pages -%}
+        {% set     indent = indent0 %}{% for i in 2..page.level %}{% set indent = indent ~ "    " %}{% endfor %}
+        {% set   children = page.children().all()|length %}
+        {% set        url = parentUrl ~ '/' ~ page.slug %}
+        {% set rightArrow = "" %}
+        {% set     events = 0 -%}
+
+        {# Does it get an arrow (because it has sub-categories in the menu structure, or events) ? #}
+        {% if children %}
+            {% set rightArrow = " &nbsp; &#9660; " %}
+            {% if page.strobe %}
+                {% set strobe        = "strobe" %}
+                {% set strobeContent = "<p class='strobeContent'>&nbsp;</p>" %}
+            {% else %}
+                {% set strobe        = "" %}
+                {% set strobeContent = "" %}
+            {% endif %}
+        {% elseif (page.type.handle in ['listOfEvents']) and (page.showEventsInMenu == 'yes') %}
+            {% set events = craft.entries().section('events').mainStructureCategory(page.id).orderBy('startDate').all() %}
+            {% set eventsQuery = craft.entries({
+                        section:               'events',
+                        mainStructureCategory:  page.id,
+                        orderBy:               'startDate',
+                        limit:                  30
+            }) %}
+            {% set events = eventsQuery.all() %}
+            {% if events|length %}
+                {% set rightArrow = " &nbsp;   &#9660;" %}
+            {% endif %}
+        {% endif -%}
+
+        {# If it gets an arrow, then it shouldn't be clickable as a link, but needs to be openable. #}
+        {% if rightArrow != "" %}
+
+            {{ indent }}<li class="nav menu-item hasSubMenu {{strobe}}">
+                {{indent}}{{ page.title }}{{ rightArrow|raw }}
+                {{indent}}{{ strobeContent|raw }}
+            {{ indent }}</li>
+        {% else %}
+
+            {{ indent }}<li class="menu-item nav">
+                {{ indent }}<a href="{{ url }}">{{ page.title }}{{ rightArrow|raw }}</a>
+            {{ indent }}</li>
+        {% endif %}
+
+            {% if children -%}
+                {{ indent}}<ul class="navLevel{{page.level}}">
+                {{ self.navig(url, page.children, indent ~ "    ") }}
+            {{ indent }}</ul>
+            {% elseif events > 0 %}
+
+                {{ indent }}<ul id="menuEvents" class="navLevel{{page.level}} menuEvents">
+                {% set nowTime = now.getTimestamp %}
+                {% for event in events -%}
+                    {% if event.endDate is null or event.endDate.getTimestamp >= nowTime %}
+
+                        {{ indent }}<li class="menu-item nav navLevel{{ page.level }}">
+                        {{ indent }}    <a href="{{ event.getUrl }}"><b>{{ event.startDate|date('D, M j') }}</b><br>{{ event.title }}</a>
+                        {{ indent }}</li>
+                    {% endif %}
+                {% endfor %}
+
+                {{ indent }}</ul>
+            {% endif %}
+
+    {% endfor %}
+
+{% endmacro %}
+
+
+
+{# Craftcms Search #}
+{% set q = craft.app.request.getQueryParam('search') %}
+
+{% set results = craft.entries
+  .section('news')
+  .search(q)
+  .all() %}
+

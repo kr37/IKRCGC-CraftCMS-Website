@@ -1,0 +1,8 @@
+/*------ {{ _self }}  ------*/
+
+@font-face { font-family: 'Copperplate'; font-style: normal; font-weight: normal; 
+    src: url('/assets/fonts/CopperplateGothicStd-31AB.woff2') format('woff2'), 
+    local('Copperplate Gothic Bold'); }
+
+.ck h1, div.ck-heading-dropdown button.ck-heading_heading1 span.ck-button__label { font-family: 'Copperplate', serif; font-size: 24px;}
+.ck h2, div.ck-heading-dropdown button.ck-heading_heading2 span.ck-button__label { font-family: 'Copperplate', serif; font-size: 18px;}

@@ -1,0 +1,15 @@
+{% extends "_layouts/cp" %}
+
+{% set title = "My Custom Page" %}
+
+{% block content %}
+    <h1>My Custom Control Panel Page</h1>
+    <p>Your content here...</p>
+
+    <h2>Template Variables</h2>
+    <dl>
+        <dt>site</dt><dd>The URL of the request from craft.app.request.hostName</dd>
+        <dt>home</dt><dd>Not sure</dd>
+        <dt>nonTestingSite</dt><dd>If you're on a testing site, this will be the corresponding site that is live. Otherwise, this is the same as site.</dd>
+    </dl>
+{% endblock %}

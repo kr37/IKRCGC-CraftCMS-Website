@@ -1,0 +1,16 @@
+/*------ {{ _self }}  ------*/
+/*     Events Styles        */
+
+        .eventDiv   { padding: 1em; margin: 1em; }
+        .teacherDiv { float: right; overflow: hidden; }
+        .dateAndTimeInfo { font-family: arial,sans-serif; }
+
+        .stretchToFit { width: 100%; max-height: 200vh; }
+        .teacherInfo            { text-align: center; }
+        table.retreatTimesTable,
+        table.courseScheduleTable,
+        table.courseScheduleTable    { margin: 1em auto;      border-collapse: collapse; }
+        .retreatTimesTable td,
+        .courseScheduleTable td { padding: 0 0.5em; border-bottom: 1px solid gray; }
+        
+

@@ -1,0 +1,8 @@
+{% extends '_0-page-generic.html' %}
+{% set templates = _self ~ ((templates is defined) ? ' from ' ~ templates : '') %}
+{% import "_macros_bodyMatrix.html" as macroBM %}
+
+{% block content %}
+    {% set homeEntry = craft.entries().slug(nonTestingSite).one() %}
+    {{ macroBM.bodyMatrix(homeEntry) }}
+{% endblock %}
