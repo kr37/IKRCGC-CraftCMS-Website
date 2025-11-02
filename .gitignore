@@ -1,0 +1,11 @@
+/.ddev/
+/.env*
+/.idea
+/vendor/
+/config/
+/storage/
+/web/
+.DS_Store
+/craft
+/bootstrap.php
+
