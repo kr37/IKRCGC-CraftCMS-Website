@@ -5,6 +5,7 @@
 /config/
 /storage/
 /web/
+/web
 .DS_Store
 /craft
 /bootstrap.php
