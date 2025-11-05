@@ -4,8 +4,8 @@
 /vendor/
 /config/app.php
 /config/general.php
-/config/license.php
-/config/license1.php
+/config/license.key
+/config/license.key.1
 /config/redirects.php
 /config/routes.php
 /storage/
