@@ -1,0 +1,16 @@
+columnSuffix: null
+handle: css
+instructions: 'Add any CSS that is specific just to this entry or page.'
+name: 'CSS styles for this page'
+searchable: false
+settings:
+  byteLimit: null
+  charLimit: null
+  code: true
+  initialRows: 4
+  multiline: true
+  placeholder: null
+  uiMode: normal
+translationKeyFormat: null
+translationMethod: none
+type: craft\fields\PlainText

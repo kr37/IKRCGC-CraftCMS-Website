@@ -1,0 +1,110 @@
+color: blue
+description: 'Insert some version of calendar'
+fieldLayouts:
+  216f03bb-e816-475e-b95b-59b42803bfb9:
+    cardThumbAlignment: end
+    tabs:
+      -
+        elementCondition: null
+        elements:
+          -
+            autocapitalize: true
+            autocomplete: false
+            autocorrect: true
+            class: null
+            dateAdded: '2025-10-31T09:48:26+00:00'
+            disabled: false
+            elementCondition: null
+            id: null
+            includeInCards: false
+            inputType: null
+            instructions: null
+            label: null
+            max: null
+            min: null
+            name: null
+            orientation: null
+            placeholder: null
+            providesThumbs: false
+            readonly: false
+            required: true
+            size: null
+            step: null
+            tip: null
+            title: null
+            type: craft\fieldlayoutelements\entries\EntryTitleField
+            uid: 6978ba74-3ec9-42b9-8465-2bbb05df81f3
+            userCondition: null
+            warning: null
+            width: 100
+        name: Content
+        uid: 0f5d9086-bf96-41cf-9018-ff3af5f5be5f
+        userCondition: null
+      -
+        elementCondition: null
+        elements:
+          -
+            dateAdded: '2025-10-31T09:51:10+00:00'
+            editCondition: null
+            elementCondition: null
+            fieldUid: 0a0074f6-fe7f-4e6a-9ccb-15af242fa2ed # CSS Theme
+            handle: null
+            includeInCards: false
+            instructions: null
+            label: null
+            providesThumbs: false
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: ae78e8d8-f6f4-4499-908c-4d22b8240735
+            userCondition: null
+            warning: null
+            width: 100
+          -
+            dateAdded: '2025-10-31T09:51:10+00:00'
+            editCondition: null
+            elementCondition: null
+            fieldUid: 11a375e3-fa35-479d-b681-edaeab6f30a0 # Page CSS File
+            handle: null
+            includeInCards: false
+            instructions: null
+            label: null
+            providesThumbs: false
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: 8c3c7005-ec80-467f-b9dd-91d5b8c21cbb
+            userCondition: null
+            warning: null
+            width: 100
+          -
+            dateAdded: '2025-10-31T09:51:10+00:00'
+            editCondition: null
+            elementCondition: null
+            fieldUid: 3d4dfd01-d8a4-4bf4-9d27-0ff08d2525a1 # CSS styles for this page
+            handle: null
+            includeInCards: false
+            instructions: null
+            label: null
+            providesThumbs: false
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: d0b14067-4fee-4bf8-9bce-c2f2c1a26cd2
+            userCondition: null
+            warning: null
+            width: 100
+        name: Styles
+        uid: 8e1e9728-3378-4325-b1af-13198b799ead
+        userCondition: null
+handle: calendar
+hasTitleField: true
+icon: bars
+name: 'menu Calendar'
+showSlugField: true
+showStatusField: true
+slugTranslationKeyFormat: null
+slugTranslationMethod: site
+titleFormat: null
+titleTranslationKeyFormat: null
+titleTranslationMethod: site

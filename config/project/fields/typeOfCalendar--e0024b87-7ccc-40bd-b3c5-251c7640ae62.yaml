@@ -1,0 +1,62 @@
+columnSuffix: null
+handle: typeOfCalendar
+instructions: null
+name: 'Type of calendar'
+searchable: false
+settings:
+  customOptions: false
+  options:
+    -
+      __assoc__:
+        -
+          - label
+          - Month
+        -
+          - value
+          - month
+        -
+          - icon
+          - calendar-days
+        -
+          - color
+          - ''
+        -
+          - default
+          - '1'
+    -
+      __assoc__:
+        -
+          - label
+          - Today
+        -
+          - value
+          - today
+        -
+          - icon
+          - calendar-day
+        -
+          - color
+          - ''
+        -
+          - default
+          - ''
+    -
+      __assoc__:
+        -
+          - label
+          - 'Today & Tomorrow'
+        -
+          - value
+          - todayTomorrow
+        -
+          - icon
+          - calendar-week
+        -
+          - color
+          - ''
+        -
+          - default
+          - ''
+translationKeyFormat: null
+translationMethod: none
+type: craft\fields\Dropdown

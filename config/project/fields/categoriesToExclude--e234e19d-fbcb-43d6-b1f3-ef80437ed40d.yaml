@@ -1,0 +1,16 @@
+columnSuffix: null
+handle: categoriesToExclude
+instructions: 'Similar to the inclusions. Exclusions happen after inclusions. That is, you could include study programs and then exclude TTP, so that only FP was shown.'
+name: 'Body Matrix - Calendar - Categories to exclude'
+searchable: false
+settings:
+  byteLimit: null
+  charLimit: null
+  code: true
+  initialRows: 4
+  multiline: false
+  placeholder: null
+  uiMode: normal
+translationKeyFormat: null
+translationMethod: none
+type: craft\fields\PlainText

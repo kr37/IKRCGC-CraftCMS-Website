@@ -1,0 +1,16 @@
+columnSuffix: null
+handle: categoriesToInclude
+instructions: 'This is a bit hacky, but put a comma-separated list of the menu entries you want. Events from those menu items, and all the sub-categories of those, will be included.   Seattle: 1751, Anchorage: 1761, Whidbey: 1753'
+name: 'Body Matrix - Calendar - Categories to include'
+searchable: false
+settings:
+  byteLimit: null
+  charLimit: null
+  code: true
+  initialRows: 4
+  multiline: false
+  placeholder: '1751,1761'
+  uiMode: normal
+translationKeyFormat: null
+translationMethod: none
+type: craft\fields\PlainText

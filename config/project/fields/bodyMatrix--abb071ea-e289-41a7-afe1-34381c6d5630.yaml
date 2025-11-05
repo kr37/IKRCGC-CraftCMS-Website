@@ -1,0 +1,37 @@
+columnSuffix: null
+handle: bodyMatrix
+instructions: null
+name: 'Body Matrix'
+searchable: false
+settings:
+  createButtonLabel: 'Add content'
+  defaultIndexViewMode: cards
+  enableVersioning: true
+  entryTypes:
+    -
+      __assoc__:
+        -
+          - uid
+          - dbe63d60-d565-40d4-9abc-661a1fa35963 # Main Text
+        -
+          - group
+          - General
+    -
+      __assoc__:
+        -
+          - uid
+          - 9c9ebbe7-05c9-45f4-a962-65ed438a651f # Calendar
+        -
+          - group
+          - General
+  includeTableView: false
+  maxEntries: null
+  minEntries: null
+  pageSize: null
+  propagationKeyFormat: null
+  propagationMethod: all
+  showCardsInGrid: false
+  viewMode: blocks
+translationKeyFormat: null
+translationMethod: site
+type: craft\fields\Matrix

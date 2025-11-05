@@ -2,11 +2,15 @@
 /.env*
 /.idea
 /vendor/
-/config/
+/config/app.php
+/config/general.php
+/config/license.php
+/config/license1.php
+/config/redirects.php
+/config/routes.php
 /storage/
 /web/
 /web
 .DS_Store
 /craft
 /bootstrap.php
-

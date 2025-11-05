@@ -1,0 +1,62 @@
+columnSuffix: null
+handle: isLivestreamed
+instructions: 'If this page/category is for events, then are they normally live-streamed?'
+name: 'Is livestreamed?'
+searchable: false
+settings:
+  customOptions: false
+  options:
+    -
+      __assoc__:
+        -
+          - label
+          - 'Default for this category'
+        -
+          - value
+          - ''
+        -
+          - icon
+          - ''
+        -
+          - color
+          - ''
+        -
+          - default
+          - '1'
+    -
+      __assoc__:
+        -
+          - label
+          - 'Yes'
+        -
+          - value
+          - 'yes'
+        -
+          - icon
+          - video
+        -
+          - color
+          - '#c01c28'
+        -
+          - default
+          - ''
+    -
+      __assoc__:
+        -
+          - label
+          - 'No'
+        -
+          - value
+          - 'no'
+        -
+          - icon
+          - ban
+        -
+          - color
+          - '#232627'
+        -
+          - default
+          - ''
+translationKeyFormat: null
+translationMethod: none
+type: craft\fields\RadioButtons

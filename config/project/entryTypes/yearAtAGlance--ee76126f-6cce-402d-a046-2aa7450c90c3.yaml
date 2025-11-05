@@ -1,0 +1,87 @@
+color: blue
+description: null
+fieldLayouts:
+  4db0873c-5c5a-4f5f-8d3a-9491586c9e03:
+    cardThumbAlignment: end
+    tabs:
+      -
+        elementCondition: null
+        elements:
+          -
+            autocapitalize: true
+            autocomplete: false
+            autocorrect: true
+            class: null
+            dateAdded: '2025-10-31T09:32:07+00:00'
+            disabled: false
+            elementCondition: null
+            id: null
+            includeInCards: false
+            inputType: null
+            instructions: null
+            label: null
+            max: null
+            min: null
+            name: null
+            orientation: null
+            placeholder: null
+            providesThumbs: false
+            readonly: false
+            required: true
+            size: null
+            step: null
+            tip: null
+            title: null
+            type: craft\fieldlayoutelements\entries\EntryTitleField
+            uid: 45c19a69-f77f-46ef-9d61-56e11008bd60
+            userCondition: null
+            warning: null
+            width: 100
+          -
+            dateAdded: '2025-10-31T09:47:10+00:00'
+            editCondition: null
+            elementCondition: null
+            fieldUid: abb071ea-e289-41a7-afe1-34381c6d5630 # Body Matrix
+            handle: bodyMatrix
+            includeInCards: false
+            instructions: 'Content above the Year-at-a-glance table'
+            label: 'Body Matrix'
+            providesThumbs: false
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: 829e213f-38b5-4314-827d-0370864ba781
+            userCondition: null
+            warning: null
+            width: 100
+          -
+            dateAdded: '2025-10-31T09:47:10+00:00'
+            editCondition: null
+            elementCondition: null
+            fieldUid: 770fc2f0-234c-4829-8724-bf0e3fff0ce7 # Footer
+            handle: null
+            includeInCards: false
+            instructions: 'Content below the year-at-a-glance listing'
+            label: null
+            providesThumbs: false
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: 2bc32aa0-c943-47fd-99ea-f22445471d6a
+            userCondition: null
+            warning: null
+            width: 100
+        name: Content
+        uid: 0aada212-8711-46e5-957e-117bf9b15207
+        userCondition: null
+handle: yearAtAGlance
+hasTitleField: true
+icon: bars
+name: 'menu Year-at-a-glance'
+showSlugField: true
+showStatusField: true
+slugTranslationKeyFormat: null
+slugTranslationMethod: site
+titleFormat: null
+titleTranslationKeyFormat: null
+titleTranslationMethod: site

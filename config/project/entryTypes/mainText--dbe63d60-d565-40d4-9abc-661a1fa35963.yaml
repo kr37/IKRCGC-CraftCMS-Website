@@ -1,0 +1,20 @@
+color: yellow
+fieldLayouts:
+  e105e200-d223-4737-844c-20e5d1cc1c11:
+    tabs:
+      -
+        elementCondition: null
+        name: Content
+        uid: 7fa1d242-b311-4b82-966c-277cc67eb15b
+        userCondition: null
+handle: mainText
+hasTitleField: false
+icon: a
+name: 'Main Text'
+showSlugField: true
+showStatusField: true
+slugTranslationKeyFormat: null
+slugTranslationMethod: site
+titleFormat: null
+titleTranslationKeyFormat: null
+titleTranslationMethod: site

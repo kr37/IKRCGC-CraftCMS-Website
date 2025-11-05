@@ -1,0 +1,12 @@
+columnSuffix: null
+handle: strobe
+instructions: "If you'd like for any sub-menu items to slowly flash in the menu, turn this on."
+name: Strobe
+searchable: false
+settings:
+  default: false
+  offLabel: "Don't flash anything"
+  onLabel: 'Slowly display the items of any submenu, such as branches or events, one at a time.'
+translationKeyFormat: null
+translationMethod: none
+type: craft\fields\Lightswitch

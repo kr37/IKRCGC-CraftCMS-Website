@@ -1,0 +1,112 @@
+color: blue
+fieldLayouts:
+  3109744b-841f-489b-a977-2637477ca021:
+    tabs:
+      -
+        elementCondition: null
+        elements:
+          -
+            dateAdded: '2025-06-17T06:05:51+00:00'
+            editCondition: null
+            elementCondition: null
+            fieldUid: f7bab6f8-c581-4ae7-8476-8f70b5c095c3 # Main Top Branding Image
+            handle: null
+            includeInCards: false
+            instructions: null
+            label: null
+            providesThumbs: false
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: f70b8453-1d91-4948-84db-4981bca90414
+            userCondition: null
+            warning: null
+            width: 100
+          -
+            dateAdded: '2025-06-17T06:12:59+00:00'
+            editCondition: null
+            elementCondition: null
+            fieldUid: abb071ea-e289-41a7-afe1-34381c6d5630 # Body Matrix
+            handle: null
+            includeInCards: false
+            instructions: null
+            label: null
+            providesThumbs: false
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: 5c27bb0c-cb3e-474a-a215-8160bac7f0b5
+            userCondition: null
+            warning: null
+            width: 100
+        name: Content
+        uid: 0e85a66a-d17e-4a5b-b223-84060e6da16c
+        userCondition: null
+      -
+        elementCondition: null
+        elements:
+          -
+            dateAdded: '2025-06-17T06:12:46+00:00'
+            editCondition: null
+            elementCondition: null
+            fieldUid: 3d4dfd01-d8a4-4bf4-9d27-0ff08d2525a1 # CSS styles for this page
+            handle: null
+            includeInCards: false
+            instructions: null
+            label: null
+            providesThumbs: false
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: 8bf3b535-6908-4a55-86b7-3df3977fc1ed
+            userCondition: null
+            warning: null
+            width: 100
+          -
+            dateAdded: '2025-06-17T06:08:00+00:00'
+            editCondition: null
+            elementCondition: null
+            fieldUid: 11a375e3-fa35-479d-b681-edaeab6f30a0 # Page CSS File
+            handle: null
+            includeInCards: false
+            instructions: null
+            label: null
+            providesThumbs: false
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: 785e3f50-1c36-49fe-97f9-f90b0a4daefb
+            userCondition: null
+            warning: null
+            width: 100
+          -
+            dateAdded: '2025-06-17T06:05:51+00:00'
+            editCondition: null
+            elementCondition: null
+            fieldUid: 0a0074f6-fe7f-4e6a-9ccb-15af242fa2ed # CSS Theme
+            handle: null
+            includeInCards: false
+            instructions: null
+            label: null
+            providesThumbs: false
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: 369cb5c6-a516-45b9-8e91-21c86120c361
+            userCondition: null
+            warning: null
+            width: 100
+        name: Technical
+        uid: d92cb897-bba8-4a82-a736-2b8c7016d1ff
+        userCondition: null
+handle: home
+hasTitleField: false
+icon: house
+name: 'template Home Page'
+showSlugField: true
+showStatusField: true
+slugTranslationKeyFormat: null
+slugTranslationMethod: site
+titleFormat: '{section.name|raw}'
+titleTranslationKeyFormat: null
+titleTranslationMethod: site

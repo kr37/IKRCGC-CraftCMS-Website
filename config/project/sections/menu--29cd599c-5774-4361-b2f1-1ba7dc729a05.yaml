@@ -1,0 +1,34 @@
+defaultPlacement: end
+enableVersioning: true
+entryTypes:
+  -
+    uid: 32dff5bf-063b-4316-b5de-b93bce5cde7d # menu Site Home
+  -
+    uid: a0264f27-35ad-4dfe-bb7b-ca06c1931b60 # menu List of Events
+  -
+    uid: 86a8fcb3-54a1-4f00-b5fb-ca0f6b21eb7d # menu List of non-event entries
+  -
+    uid: bdd4ae28-c0a0-4995-a9d3-dac022403bf6 # menu Single page
+  -
+    uid: ee76126f-6cce-402d-a046-2aa7450c90c3 # menu Year-at-a-glance
+  -
+    uid: 68595c57-0222-4bf0-802b-dd7b1fecac05 # menu Calendar
+handle: menu
+maxAuthors: 1
+name: Menu
+previewTargets:
+  -
+    label: 'Primary entry page'
+    refresh: '1'
+    urlFormat: '{url}'
+propagationMethod: all
+siteSettings:
+  f45243d2-141e-46d2-854e-59e7d497a445: # ikrc.dev
+    enabledByDefault: true
+    hasUrls: true
+    template: menu/_entry.twig
+    uriFormat: '{% if level == 2 %}{slug}{% else %}{parent.uri}/{slug}{% endif %}'
+structure:
+  maxLevels: null
+  uid: efa08f10-cfc6-4ee3-87b5-886ef44e5c1d
+type: structure

@@ -1,0 +1,45 @@
+columnSuffix: null
+handle: showEventsInMenu
+instructions: 'The menu can be dynamically populated with upcoming events.'
+name: "Show this category's individual events in the drop-down menu?"
+searchable: false
+settings:
+  customOptions: false
+  options:
+    -
+      __assoc__:
+        -
+          - label
+          - 'Yes, show them'
+        -
+          - value
+          - 'yes'
+        -
+          - icon
+          - ''
+        -
+          - color
+          - ''
+        -
+          - default
+          - ''
+    -
+      __assoc__:
+        -
+          - label
+          - 'No, do not show them in the menu'
+        -
+          - value
+          - 'no'
+        -
+          - icon
+          - ''
+        -
+          - color
+          - ''
+        -
+          - default
+          - '1'
+translationKeyFormat: null
+translationMethod: none
+type: craft\fields\Dropdown

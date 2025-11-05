@@ -1,0 +1,28 @@
+defaultPlacement: end
+enableVersioning: true
+entryTypes:
+  -
+    uid: 948e0246-7883-4e00-b3b3-0a75f9d5ae16 # template Home Page
+handle: home
+maxAuthors: 1
+name: Home
+previewTargets:
+  -
+    __assoc__:
+      -
+        - label
+        - 'Primary entry page'
+      -
+        - urlFormat
+        - '{url}'
+      -
+        - refresh
+        - '1'
+propagationMethod: all
+siteSettings:
+  f45243d2-141e-46d2-854e-59e7d497a445: # ikrc.dev
+    enabledByDefault: true
+    hasUrls: true
+    template: _page_home.html
+    uriFormat: __home__
+type: single

@@ -1,0 +1,83 @@
+dateModified: 1762061171
+email:
+  fromEmail: kelsangrinzin@gmail.com
+  fromName: ikrc.dev
+  transportType: craft\mail\transportadapters\Sendmail
+fs:
+  localPublic:
+    hasUrls: true
+    name: 'Local Public'
+    settings:
+      path: $CRAFT_WEB_ROOT
+    type: craft\fs\Local
+    url: $PRIMARY_SITE_URL
+  templatesFolder:
+    hasUrls: true
+    name: 'Templates Folder'
+    settings:
+      path: '@root/templates'
+    type: craft\fs\Local
+    url: $PRIMARY_SITE_URL
+meta:
+  __names__:
+    0a0074f6-fe7f-4e6a-9ccb-15af242fa2ed: 'CSS Theme' # CSS Theme
+    1db23fc5-d0eb-45cc-8ab9-bf22d7c95620: Simple # Simple
+    02a29075-954b-47bc-bdc7-dc59aab5f9d6: Home # Home
+    3d4dfd01-d8a4-4bf4-9d27-0ff08d2525a1: 'CSS styles for this page' # CSS styles for this page
+    4c93fe30-ec6d-48cf-9012-e57eebee898d: Image # Image
+    4e23ee16-d562-4701-b7cf-46c8189c44a6: 'Everything Bagel' # Everything Bagel
+    6b619296-0133-42fe-8ed5-5ebbefa6fe97: Dummy # Dummy
+    6c6dbf6b-cf9f-4681-b74a-6410bdaca77e: "Show this category's individual events in the drop-down menu?" # Show this category's individual events in the drop-down menu?
+    7aba2536-149b-48ea-a774-554028f63ab2: 'Is livestreamed?' # Is livestreamed?
+    8c71ecc3-36f7-4f8b-a3f5-399e51602d7c: Strobe # Strobe
+    9c9ebbe7-05c9-45f4-a962-65ed438a651f: Calendar # Calendar
+    11a375e3-fa35-479d-b681-edaeab6f30a0: 'Page CSS File' # Page CSS File
+    29cd599c-5774-4361-b2f1-1ba7dc729a05: Menu # Menu
+    32dff5bf-063b-4316-b5de-b93bce5cde7d: 'menu Site Home' # menu Site Home
+    85ff26ce-b8f0-40cb-a626-7a69b96f496b: 'Body Matrix - Calendar - Categories to include' # Body Matrix - Calendar - Categories to include
+    86a8fcb3-54a1-4f00-b5fb-ca0f6b21eb7d: 'menu List of non-event entries' # menu List of non-event entries
+    124ad81b-7c92-4362-8e38-90b1a6f08bde: Primary # Primary
+    335a8c85-aa19-4261-a5e2-bc3aab54d823: ikrc.dev # ikrc.dev
+    770fc2f0-234c-4829-8724-bf0e3fff0ce7: Footer # Footer
+    948e0246-7883-4e00-b3b3-0a75f9d5ae16: 'template Home Page' # template Home Page
+    4695c8f4-d09c-4e81-951d-8f8754e02efc: Accommodation # Accommodation
+    68595c57-0222-4bf0-802b-dd7b1fecac05: 'menu Calendar' # menu Calendar
+    a0264f27-35ad-4dfe-bb7b-ca06c1931b60: 'menu List of Events' # menu List of Events
+    abb071ea-e289-41a7-afe1-34381c6d5630: 'Body Matrix' # Body Matrix
+    bad21769-94f6-47e6-816d-ca69d0aa5819: 'Template Files' # Template Files
+    bdd4ae28-c0a0-4995-a9d3-dac022403bf6: 'menu Single page' # menu Single page
+    da90e742-6530-4ab4-a062-dcc8b1d35a29: 'Public Schema' # Public Schema
+    dbe63d60-d565-40d4-9abc-661a1fa35963: 'Main Text' # Main Text
+    e0024b87-7ccc-40bd-b3c5-251c7640ae62: 'Type of calendar' # Type of calendar
+    e40baa91-5332-4185-8585-24383aece0f5: New # New
+    e181f57a-2fe1-4266-89d1-a6184f508542: Images # Images
+    e234e19d-fbcb-43d6-b1f3-ef80437ed40d: 'Body Matrix - Calendar - Categories to exclude' # Body Matrix - Calendar - Categories to exclude
+    ea599a1c-5faa-4e2d-ad6a-133e69f09c17: 'Show on Year-at-a-glance?' # Show on Year-at-a-glance?
+    edfb6629-8660-4a2a-b669-8cb1b561ba9a: 'Main Text' # Main Text
+    ee76126f-6cce-402d-a046-2aa7450c90c3: 'menu Year-at-a-glance' # menu Year-at-a-glance
+    f7bab6f8-c581-4ae7-8476-8f70b5c095c3: 'Main Top Branding Image' # Main Top Branding Image
+    f45243d2-141e-46d2-854e-59e7d497a445: ikrc.dev # ikrc.dev
+plugins:
+  ckeditor:
+    edition: standard
+    enabled: true
+    schemaVersion: 3.0.0.0
+  commerce:
+    edition: pro
+    enabled: true
+    licenseKey: WCCQKNOFS0FR6ER5IEYKRHFH
+    schemaVersion: 5.4.0.6
+system:
+  edition: pro
+  live: true
+  name: 'IKRC Grand Canyon'
+  retryDuration: null
+  schemaVersion: 5.8.0.3
+  timeZone: America/Los_Angeles
+users:
+  allowPublicRegistration: false
+  defaultGroup: null
+  photoSubpath: null
+  photoVolumeUid: null
+  require2fa: false
+  requireEmailVerification: true

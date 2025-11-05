@@ -1,0 +1,45 @@
+columnSuffix: null
+handle: cssTheme
+instructions: 'Which overall look do we want?'
+name: 'CSS Theme'
+searchable: false
+settings:
+  customOptions: false
+  options:
+    -
+      __assoc__:
+        -
+          - label
+          - 'IKRC 2024'
+        -
+          - value
+          - ikrc2024
+        -
+          - icon
+          - chart-pyramid
+        -
+          - color
+          - '#813d9c'
+        -
+          - default
+          - '1'
+    -
+      __assoc__:
+        -
+          - label
+          - LA
+        -
+          - value
+          - la
+        -
+          - icon
+          - border-left
+        -
+          - color
+          - '#e5a50a'
+        -
+          - default
+          - ''
+translationKeyFormat: null
+translationMethod: none
+type: craft\fields\RadioButtons
