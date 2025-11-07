@@ -1,0 +1,5 @@
+cardThumbAlignment: end
+cardView:
+  - reference
+  - orderStatus
+  - totalPrice

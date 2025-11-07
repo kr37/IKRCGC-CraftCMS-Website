@@ -8,16 +8,9 @@ maxAuthors: 1
 name: Home
 previewTargets:
   -
-    __assoc__:
-      -
-        - label
-        - 'Primary entry page'
-      -
-        - urlFormat
-        - '{url}'
-      -
-        - refresh
-        - '1'
+    label: 'Primary entry page'
+    refresh: '1'
+    urlFormat: '{url}'
 propagationMethod: all
 siteSettings:
   f45243d2-141e-46d2-854e-59e7d497a445: # ikrc.dev

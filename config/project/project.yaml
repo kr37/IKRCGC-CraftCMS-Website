@@ -1,4 +1,4 @@
-dateModified: 1762061171
+dateModified: 1762489940
 email:
   fromEmail: kelsangrinzin@gmail.com
   fromName: ikrc.dev
@@ -18,6 +18,10 @@ fs:
       path: '@root/templates'
     type: craft\fs\Local
     url: $PRIMARY_SITE_URL
+graphql:
+  publicToken:
+    enabled: false
+    expiryDate: null
 meta:
   __names__:
     0a0074f6-fe7f-4e6a-9ccb-15af242fa2ed: 'CSS Theme' # CSS Theme
@@ -46,7 +50,6 @@ meta:
     abb071ea-e289-41a7-afe1-34381c6d5630: 'Body Matrix' # Body Matrix
     bad21769-94f6-47e6-816d-ca69d0aa5819: 'Template Files' # Template Files
     bdd4ae28-c0a0-4995-a9d3-dac022403bf6: 'menu Single page' # menu Single page
-    da90e742-6530-4ab4-a062-dcc8b1d35a29: 'Public Schema' # Public Schema
     dbe63d60-d565-40d4-9abc-661a1fa35963: 'Main Text' # Main Text
     e0024b87-7ccc-40bd-b3c5-251c7640ae62: 'Type of calendar' # Type of calendar
     e40baa91-5332-4185-8585-24383aece0f5: New # New

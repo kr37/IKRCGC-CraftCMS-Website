@@ -1,13 +1,17 @@
+defaultPlacement: end
 descriptionFormat: '{product.title} - {title}'
 enableVersioning: true
 handle: accommodation
 hasDimensions: false
 hasProductTitleField: true
 hasVariantTitleField: true
+isStructure: true
+maxLevels: null
 maxVariants: null
 name: Accommodation
 productFieldLayouts:
   c70a2a93-6b57-4c5a-82c0-cba7195d6e2e:
+    cardThumbAlignment: end
     cardView:
       - defaultSku
       - defaultPrice
@@ -85,17 +89,21 @@ productFieldLayouts:
         uid: 523ebd09-1c75-4768-987d-cf56409ae402
         userCondition: null
 productTitleFormat: ''
-productTitleTranslationKeyFormat: ''
+productTitleTranslationKeyFormat: null
 productTitleTranslationMethod: site
 propagationMethod: all
 siteSettings:
   f45243d2-141e-46d2-854e-59e7d497a445: # ikrc.dev
+    enabledByDefault: true
     hasUrls: true
     template: _accommodation.twig
     uriFormat: 'accommodation/{slug}'
 skuFormat: 'accom-{roomType}-{dateOfArrival}-{dateOfDeparture}-{options}'
+structure:
+  uid: c475faef-9d0a-4d5b-bf5b-58da38a69272
 variantFieldLayouts:
   c4fcb82a-0d57-4ac5-83b1-712a5bcb2318:
+    cardThumbAlignment: end
     cardView:
       - sku
       - priceView
@@ -176,6 +184,8 @@ variantFieldLayouts:
           -
             attribute: stock
             dateAdded: '2025-05-15T04:57:47+00:00'
+            defaultAllowOutOfStockPurchases: false
+            defaultInventoryTracked: false
             elementCondition: null
             id: null
             includeInCards: false
@@ -196,6 +206,7 @@ variantFieldLayouts:
           -
             attribute: availableForPurchase
             dateAdded: '2025-05-15T04:57:47+00:00'
+            defaultAvailableForPurchase: false
             elementCondition: null
             id: null
             includeInCards: false
@@ -256,6 +267,7 @@ variantFieldLayouts:
           -
             attribute: promotable
             dateAdded: '2025-05-15T04:57:47+00:00'
+            defaultPromotable: false
             elementCondition: null
             id: null
             includeInCards: false
@@ -317,5 +329,5 @@ variantFieldLayouts:
         uid: 36bd08de-5128-4970-a465-a261ea9dc586
         userCondition: null
 variantTitleFormat: '{product.title}'
-variantTitleTranslationKeyFormat: ''
+variantTitleTranslationKeyFormat: null
 variantTitleTranslationMethod: site
